@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Vast+Shadow&display=swap');
+
+.App {
+  height: 100vh;
+  position: relative;
+}
+
+nav {
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  background-color: black !important;
+}
+
+.page-title {
+  text-transform: uppercase;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin-bottom: 30px;
+  margin-top: 15px;
+  font-weight: bold;
+  color: #444;
+}
+
+.navbar-brand {
+  font-weight: bold;
+}
+
+.overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: black;
+  opacity: 0.7;
+  background: no-repeat center center fixed;
+  background-size: cover;
+  z-index: 0;
+}
+
+.match-table {
+  position: relative;
+  margin-bottom: 200px;
+  background-color: white;
+  box-shadow: 2px 2px 10px 2px #ccc;
+}
+
+table, form {
+  position: absolute;
+  background-color: white;
+  z-index: 10;
+  padding: 30px 0;
+}
+
+form {
+  padding: 20px;
+  min-height: none;
+  min-width: 400px !important;
+}
+
+.historyBtn {
+  z-index: 10;
+  position: absolute;
+  /*box-shadow: 2px 2px 10px 2px #fff;*/
+  border: 2px groove gold;
+  border-radius: 10px;
+}
+
+.title {
+  font-size: 2em;
+  font-family: 'Vast Shadow', cursive;
+  color: #333;
+  z-index: 5;
+  margin: 0;
+  padding: 10px;
+  padding: 15px;
+}
+
+label {
+  margin-bottom: 5px;
+}
+
+span.required {
+  color: red;
+  font-size: 0.95em;
+  margin: 0 5px;
+}
+
+.nav-item {
+  display: inline-block;
+}
+
+.auth-links a {
+  padding: 3px 30px ;
+}
+
+.odds {
+  font-weight: 1;
+  padding: 3px 5px;
+  box-shadow: 2px 1px 3px 2px #ccc;
+}
+
+thead {
+  background-color: lightsteelblue;
+}
+
+table tr {
+  border: 8px solid #fff;
+}
+
