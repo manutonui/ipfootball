@@ -3,7 +3,7 @@ import MatchDetails from "./MatchDetails";
 const MatchTable = ({matches, title}) => {
 
     return (
-        <div className="match-table">
+        <div className="match-table my-5">
             <h4 className="title">{title}</h4>
             <table className="table">
                 <thead>
@@ -15,7 +15,7 @@ const MatchTable = ({matches, title}) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {matches.length ? matches.map( (match) => (<MatchDetails match={match} key={match._id}/>) ) : <i>No matches available</i>}
+                    {matches.length ? matches.map( (match) => (<MatchDetails match={match} key={match._id}/>) ) : <tr className="nomatchesinfo">No matches available</tr>}
                 </tbody>
             </table>
             
