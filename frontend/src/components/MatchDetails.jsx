@@ -5,7 +5,7 @@ const MatchDetails = ({match}) => {
             <td>{match.fixture.split('-')[0]}<br/>{match.fixture.split('-')[1]}</td>
             <td><b className="tip">{match.tip}</b></td>
             <td><i className='odds badge rounded-pill text-bg-light'>@ {match.odds}</i></td>
-            <td>{match.result}</td>
+            <td>{match.result}<span className="statusIcon">{handleStatus(match)}</span></td>
         </tr>
     );
 }

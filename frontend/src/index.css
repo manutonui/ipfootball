@@ -107,3 +107,7 @@ thead {
   border-bottom: 20px solid white;
   text-align: center;
 }
+
+.statusIcon {
+  margin: 0 10px;
+}
