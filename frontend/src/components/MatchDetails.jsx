@@ -1,4 +1,10 @@
 const MatchDetails = ({match}) => {
+    const handleStatus = (match) => {
+        if (match.status === 'won') return <>&#9989;</>
+        if (match.status === 'lost') return <>&#10060;</>
+        else return null
+    }
+    
     return (
         <tr>
             {/* <td>{dateFormat(match.date, 'yyyy-mm-dd')}</td> */}
