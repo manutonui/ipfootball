@@ -79,7 +79,8 @@ const MatchForm = ({match, title}) => {
 
     }
 
-    const handleDelete = async () => {
+    const handleDelete = async (e) => {
+        e.preventDefault()
         if (!user) return
         
         const response = await fetch(`/matches/delete/${match._id}`, {
@@ -90,7 +91,9 @@ const MatchForm = ({match, title}) => {
         })
         const json = await response.json()
         if ( !response.ok ) setError(json.error)
-        if (response.ok) dispatch({type: 'DELETE_MATCH', payload: json})
+        if (response.ok) {
+        	dispatch({type: 'DELETE_MATCH', payload: json})
+        }
     }
 
     return (
