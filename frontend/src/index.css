@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Vast+Shadow&display=swap');
 
 .App {
-  height: 100vh;
   position: relative;
 }
 
@@ -30,8 +29,10 @@ nav {
   top: 0; left: 0; right: 0; bottom: 0;
   background-color: black;
   background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   opacity: 0.333;
-  background: no-repeat center center fixed;
   background-size: cover;
   z-index: 0;
   height: 100vh;
