@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
 import Homepage from './pages/Homepage'
 import History from './pages/History'
 import Navbar from "./components/Navbar";
@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="App">
       <div className="overlay" style={{ backgroundImage: "url(/img/roro.jpeg)" }}></div>
-      <BrowserRouter basename="/">
+      <HashRouter>
         <Navbar />
         <div>
           <Routes>
@@ -21,7 +21,7 @@ function App() {
             <Route path="/signup" element={ !user ? <Signup/> : <Navigate to="/" />}></Route>
           </Routes>
         </div>
-      </BrowserRouter>
+      </HashRouter>
     </div>
   );
 }
