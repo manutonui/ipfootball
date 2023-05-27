@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { useState } from "react"
 import { useLogin } from '../hooks/useLogin'
 
@@ -19,8 +20,12 @@ const Login = () => {
                 <input required onChange={e=>setIdentity(e.target.value)} value={identity} className="form-control"/><br/>
                 <label>Password<span className='required'>*</span></label><br/>
                 <input required type="password" onChange={e=>setPassword(e.target.value)} value={password} className="form-control"/><br/>
-                <input disabled={isLoading} type="submit" value="Login" className="btn btn-success my-2" /><br/>
-                {error && <div className="alert alert-danger">{error}</div>}
+                
+                <input disabled={isLoading} type="submit" value="Login" className="btn btn-success" /><br/>
+                {error && <div className="alert alert-danger my-2">{error}</div>}
+                <div className='signupORlogin'>
+                    <i><small>Don't have an account?</small> <Link className="text-primary" to="/signup">Signup</Link></i>
+                </div>
             </form>
         </div>
     );
