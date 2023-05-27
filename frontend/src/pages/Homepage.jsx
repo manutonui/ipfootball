@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import MatchTable from "../components/MatchTable";
 import dateFormat from 'dateformat'
 import { useState, useEffect } from 'react';

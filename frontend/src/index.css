@@ -54,9 +54,10 @@ table, form {
 }
 
 form {
-  padding: 20px;
+  max-width: 480px;
+  box-shadow: 3px 4px 10px 5px #eee;
+  padding: 30px;
   min-height: none;
-  min-width: 400px !important;
 }
 
 .title {
@@ -109,4 +110,8 @@ thead {
 
 b.tip {
   text-transform: capitalize;
+}
+
+.signupORlogin {
+  margin-top: 10px;
 }

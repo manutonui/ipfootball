@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="App">
       <div className="overlay" style={{ backgroundImage: "url(/img/roro.jpeg)" }}></div>
-      <BrowserRouter>
+      <BrowserRouter basename="/">
         <Navbar />
         <div>
           <Routes>
