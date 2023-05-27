@@ -29,7 +29,6 @@ const Homepage = () => {
         <div className="homepage container my-5">
             <MatchTable matches={matches} title="Today" />
             <MatchTable matches={prevmatches} title="Yersterday" />
-            <Link to="/history" className='btn btn-light btn-sm historyBtn'>&laquo; Past Matches</Link>
         </div>
     );
 }
