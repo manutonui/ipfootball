@@ -53,6 +53,18 @@ table, form {
   padding: 30px 0;
 }
 
+.pickDate {
+  position: relative;
+}
+
+.history button {
+  z-index: 10 !important;
+  position: absolute;
+}
+
+.history .prev { left: 0; }
+.history .next { right: 0; }
+
 form {
   max-width: 480px;
   box-shadow: 3px 4px 10px 5px #eee;

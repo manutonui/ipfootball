@@ -15,7 +15,7 @@ const Navbar = () => {
                 <div className="container">
                     <Link className="navbar-brand me-3" to="/"><h3>ipfootball</h3></Link>
                     <ul className="navbar-nav ms-auto">
-                        <Link className="nav-link text-info" to="/history"><b>Past Matches</b></Link>
+                        <Link className="nav-link text-info" to="/history"><b>View History</b></Link>
                     </ul>
                     <ul className='navbar-nav'>
                         { !user && (
