@@ -9,12 +9,6 @@ const getMatches = async (req, res) => {
     res.status(200).json(matches)
 }
 
-const pastMatches = async (req, res) => {
-    const today = new Date().toISOString().split('T')[0]
-    const matches = await Match.find({ date: {$lt: today} }).sort({date: -1})
-    res.status(200).json(matches)
-}
-
 const fetchMatches = async (req, res) => {
     const matches = await Match.find().sort({date: -1})
     res.status(200).json(matches)
@@ -57,4 +51,4 @@ const deleteMatch = async (req, res) => {
     }
 }
 
-module.exports = { getMatches, postMatch, pastMatches, updateMatch, deleteMatch, fetchMatches }
+module.exports = { getMatches, postMatch, updateMatch, deleteMatch, fetchMatches }
