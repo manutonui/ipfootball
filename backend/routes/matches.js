@@ -1,11 +1,10 @@
 const express = require('express')
-const {getMatches, postMatch, pastMatches, deleteMatch, updateMatch, fetchMatches} = require('../controllers/matchesController')
+const {getMatches, postMatch, deleteMatch, updateMatch, fetchMatches} = require('../controllers/matchesController')
 const requireManager = require('../middleware/requireManager')
 const router = express.Router()
 
 router.get('/date/today', getMatches)
-router.get('/date/:date', getMatches)
-router.get('/past', pastMatches)
+router.get('/date/:date', getMatches) // to get yesterday matches
 router.get('/all', fetchMatches) // auth
 
 router.use(requireManager) // middleware
