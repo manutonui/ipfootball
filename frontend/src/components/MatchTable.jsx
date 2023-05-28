@@ -8,10 +8,10 @@ const MatchTable = ({matches, title, date}) => {
             <table className="table">
                 <thead>
                     <tr>
-                        <th>Fixture</th>
+                        <th>Match</th>
                         <th>Tip</th>
                         <th>Odds</th>
-                        <th>Result</th>
+                        <th>FT</th>
                     </tr>
                 </thead>
                 <tbody>
