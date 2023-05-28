@@ -30,10 +30,10 @@ const History = () => {
     return (
         <div className="history container my-5">
             <div className="pickDate">
-                <button onClick={handlePrev} className="prev btn btn-dark">&laquo; Previous Date</button>
-                { (date < new Date()) && (<button onClick={handleNxt} className="next btn btn-dark">Next Date &raquo;</button>) }
+                <button onClick={handlePrev} className="prev btn btn-sm btn-dark">&laquo; Previous Date</button>
+                { (date < new Date()) && (<button onClick={handleNxt} className="next btn btn-sm btn-dark">Next Date &raquo;</button>) }
             </div><br />
-            <MatchTable matches={prevmatches} title="Fixtures" date={date}/>
+            <MatchTable matches={prevmatches} title="Matches" date={date}/>
         </div>
     );
 }
