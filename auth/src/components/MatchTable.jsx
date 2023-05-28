@@ -1,17 +1,18 @@
 import MatchDetails from "./MatchDetails";
 
-const MatchTable = ({matches, title}) => {
+const MatchTable = ({matches, title, date}) => {
 
     return (
-        <div>
-            <h4 className="title">{title}</h4>
+        <div className="match-table">
+            <h4 className="title">{title} (<span className="date">{date.toDateString()}</span>)</h4>
             <table className="table">
                 <thead>
                     <tr>
-                        <th>Fixture</th>
-                        <th>Tip (FT)</th>
+                        <th>Match</th>
+                        <th>Tip</th>
                         <th>Odds</th>
-                        <th>Result</th>
+                        <th>FT</th>
+                        <th>Author</th>
                     </tr>
                 </thead>
                 <tbody>

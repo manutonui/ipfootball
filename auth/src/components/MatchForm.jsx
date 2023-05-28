@@ -125,16 +125,11 @@ const MatchForm = ({match, title}) => {
                             <option value="gg">GG</option>
                             <option value="ngg">No GG</option>
                             <option value="ov1.5">Over 1.5</option>
-                            <option value="ov1.5">Over 1.5</option>
-                            <option value="ov1.5">Over 1.5</option>
                             <option value="un1.5">Under 1.5</option>
                             <option value="ov2.5">Over 2.5</option>
                             <option value="un2.5">Under 2.5</option>
                             <option value="ov3.5">Over 3.5</option>
                             <option value="un3.5">Under 3.5</option>
-                            <option value="ht1">HT 1</option>
-                            <option value="htx">HT X</option>
-                            <option value="ht2">HT 2</option>
                         </select>
                     </div>
                     <div className="col">

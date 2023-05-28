@@ -22,6 +22,7 @@ const MatchDetails = ({match}) => {
                 <td><b className="tip">{match.tip}</b></td>
                 <td><i className='odds badge rounded-pill text-bg-light'>@ {match.odds}</i></td>
                 <td>{match.result}<span className="statusIcon">{handleStatus(match)}</span></td>
+                <td>{match.author}</td>
             </tr>
 
 
