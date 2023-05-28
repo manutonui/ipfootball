@@ -8,7 +8,8 @@ const matchSchema = new Schema({
     tip: {type: String, required: true},
     result: {type: String, default: '?'},
     status: {type: String, default: '?'},
-    odds: {type: Number, required: true}
+    odds: {type: Number, required: true},
+    author: {type: String, required: true}
 })
 
 module.exports = model('Match', matchSchema)
