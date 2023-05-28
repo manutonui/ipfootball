@@ -4,7 +4,7 @@ const MatchTable = ({matches, title, date}) => {
 
     return (
         <div className="match-table my-5">
-            <h4 className="title">{title} - <small>{date.toISOString().split('T')[0]}</small></h4>
+            <h4 className="title">{title} (<span className="date">{date.toDateString()}</span>)</h4>
             <table className="table">
                 <thead>
                     <tr>
