@@ -10,7 +10,6 @@ const MatchTable = ({matches, title, date}) => {
                     <tr>
                         <th>Match</th>
                         <th>Tip</th>
-                        <th>Odds</th>
                         <th>FT</th>
                     </tr>
                 </thead>

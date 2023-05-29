@@ -42,7 +42,9 @@ span.required {
 }
 
 b.tip {
-  text-transform: capitalize;
+  text-transform: uppercase;
+  color: #2a007d;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .odds {
