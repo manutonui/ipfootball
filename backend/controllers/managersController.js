@@ -20,6 +20,6 @@ const signupManager = async (req, res) => {
     } catch (e) { res.status(400).json({error: e.message}) }
 }
 
-const createToken = (user_id) => jwt.sign({id: user_id }, process.env.SECRET, {expiresIn:'3h'}) // signs the id
+const createToken = (user_id) => jwt.sign({id: user_id }, process.env.SECRET, {expiresIn:'13h'}) // signs the id
 
 module.exports = { loginManager, signupManager }

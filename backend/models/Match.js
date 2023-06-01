@@ -9,7 +9,8 @@ const matchSchema = new Schema({
     result: {type: String, default: '?'},
     status: {type: String, default: '?'},
     odds: {type: Number, required: true},
-    author: {type: String, required: true}
+    author: {type: String, required: true},
+    category: {type: String, required: true} //: paid, public
 })
 
 module.exports = model('Match', matchSchema)

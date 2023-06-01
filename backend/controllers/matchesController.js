@@ -3,10 +3,14 @@ const Manager = require('../models/Manager')
 
 const getMatches = async (req, res) => {
     const {date} = req.params // if provided
-    const today = new Date().toISOString().split('T')[0]
-    let matches = []
-    if (date) matches = await Match.find({date})
-    else matches = await Match.find({date: today}) // todays
+    let matches = await Match.find({date, category: {$ne: 'paid'}})
+    res.status(200).json(matches)
+}
+
+const getSpecialMatches = async (req, res) => {
+    // Rem: req has user id
+    const {date} = req.params // if provided
+    let matches = await Match.find({date, category: 'paid'})
     res.status(200).json(matches)
 }
 
@@ -16,13 +20,13 @@ const fetchMatches = async (req, res) => {
 }
 
 const postMatch = async (req, res) => {
-    const {home, away, date, tip, odds} = req.body
-    if (!home || !away || !date || !tip || !odds) return res.status(400).json({ error: "All fields are required." })
+    const {home, away, date, tip, odds, category} = req.body
+    if (!home || !away || !date || !tip || !odds || !category) return res.status(400).json({ error: "All fields are required." })
     const fixture = home+' - '+away
     let author = await Manager.findOne({_id:req.manager_id})
     
     try {
-        const match = await Match.create({fixture, date, tip, odds, author:author.identity})
+        const match = await Match.create({fixture, date, tip, odds, author:author.identity, category})
         res.status(200).json(match)
     } catch (e) {
         res.status(400).json({error: e.message })
@@ -54,4 +58,4 @@ const deleteMatch = async (req, res) => {
     }
 }
 
-module.exports = { getMatches, postMatch, updateMatch, deleteMatch, fetchMatches }
+module.exports = { getMatches, postMatch, updateMatch, deleteMatch, fetchMatches, getSpecialMatches }
