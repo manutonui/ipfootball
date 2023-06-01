@@ -103,19 +103,19 @@ const MatchForm = ({match, title}) => {
                 <div className="row">
                     <div className="col">
                         <label>Home<span className='required'>*</span></label>
-                        <input required className="form-control" placeholder="Home" value={home} onChange={e => setHome(e.target.value)}/>
+                        <input required className="form-control form-control-sm" placeholder="Home Team" value={home} onChange={e => setHome(e.target.value)}/>
                     </div>
                     <div className="col">
                         <label>Away<span className='required'>*</span></label>
-                        <input required className="form-control" placeholder="Away" value={away} onChange={e => setAway(e.target.value)}/>
+                        <input required className="form-control form-control-sm" placeholder="Away Team" value={away} onChange={e => setAway(e.target.value)}/>
                     </div>
                 </div><br/>
 
                 <div className="row">
                     <div className="col">
                         <label>Tip<span className='required'>*</span></label>
-                        <select required className="form-control" defaultValue={match ? match.tip : 'NONE'} onChange={e => setTip(e.target.value)}>
-                            <option disabled value={'NONE'}>Tip</option>
+                        <select required className="form-control form-control-sm" onChange={e => setTip(e.target.value)}>
+                            <option disabled selected>Tip</option>
                             <option value="home">Home Win</option>
                             <option value="draw">Draw</option>
                             <option value="away">Away Win</option>
@@ -134,14 +134,14 @@ const MatchForm = ({match, title}) => {
                     </div>
                     <div className="col">
                         <label>Odds<span className='required'>*</span></label>
-                        <input required type="number" step=".01" placeholder="Odds" className="form-control" value={odds} onChange={e => setOdds(e.target.value)}/>
+                        <input required type="number" step=".01" placeholder="Odds" className="form-control form-control-sm" value={odds} onChange={e => setOdds(e.target.value)}/>
                     </div>
                 </div><br/>
 
                 <div className="row">
                     <div className="col">
                         <label>Date<span className='required'>*</span></label>
-                        <input required type="date" className="form-control" value={date} onChange={e => setDate(e.target.value)}/>
+                        <input required type="date" className="form-control form-control-sm" value={date} onChange={e => setDate(e.target.value)}/>
                     </div>
                 </div><br/>
 
@@ -154,8 +154,8 @@ const MatchForm = ({match, title}) => {
                             </div>
                             <div className="col">
                                 <label>Status</label>
-                                <select className='form-control' defaultValue={match ? match.status : 'NONE'} onChange={e => setStatus(e.target.value)}>
-                                    <option value="NONE">Unfinished</option>
+                                <select className='form-control' onChange={e => setStatus(e.target.value)}>
+                                    <option selected value="NONE">Result</option>
                                     <option value="won">Won</option>
                                     <option value="lost">Lost</option>
                                 </select>

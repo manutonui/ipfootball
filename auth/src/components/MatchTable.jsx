@@ -4,7 +4,6 @@ const MatchTable = ({matches, title, date}) => {
 
     return (
         <div className="match-table">
-            <h4 className="title">{title} (<span className="date">{date.toDateString()}</span>)</h4>
             <table className="table">
                 <thead>
                     <tr>

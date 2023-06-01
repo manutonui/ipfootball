@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+
 .navbar-brand i { font-weight: 100; }
 
 .navbar-brand {
@@ -25,7 +27,8 @@
 }
 
 form {
-  max-width: 480px;
+  max-width: 600px;
+  min-width: 200px;
   box-shadow: 3px 4px 10px 5px #eee;
   padding: 30px;
 }
@@ -58,38 +61,35 @@ thead {
 }
 
 .title {
-  margin: 30px 0;
   font-size: 1.7em;
-  font-family: 'Roboto Condensed', sans-serif;
   font-weight: bold;
+  font-family: 'Roboto Condensed', sans-serif;
+  color: #333;
+  margin: 20px 0;
 }
 
 .table {
+  margin-top: 15px;
   margin-bottom: 60px;
   box-shadow: 2px 2px 10px 2px #ccc;
-  font-size: 0.8765em;
+  font-size: 0.9em;
   font-family: 'Roboto Condensed', sans-serif;
 }
 
 .pickDate button {
-  z-index: 0 !important;
-  position: absolute;
+  margin-right: 10px;
 }
-
-.pickDate .prev { left: 0; }
-.pickDate .next { right: 0; }
 
 .pickDate {
   position: relative;
 }
 
 .match-table .date {
-  font-size: 0.6em;
-  font-weight: 100;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  box-shadow: 3px 4px 10px 5px #eee;
-  padding: 0 5px;
-  border-radius: 5px;
+  font-size: 0.8em;
+  font-weight: 1;
+  margin: 3px 20px;
+  color: black;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .update-modal {
@@ -103,9 +103,11 @@ thead {
 
 .modal-content {
   background-color: white !important;
-  padding: 60px !important;
+  margin: 10px !important;
   max-width: 600px;
-  min-width: none;
+  min-width: 240px;
+  max-height: 85vh;
+  overflow-y: scroll;
 }
 
 .btn-close {

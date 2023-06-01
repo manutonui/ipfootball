@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import NewMatch from "./pages/NewMatch";
@@ -12,7 +12,7 @@ function App() {
   const {user} = useAuth()
   return (
     <div className="App">
-      <BrowserRouter>
+      <HashRouter>
         <Nav />
           <Routes>
             <Route path="/login" element={!user ? <Login/> : <Navigate to="/"/>} />
@@ -21,7 +21,7 @@ function App() {
             <Route path="/stats" element={user ? <Stats/> : <Navigate to="/login"/> } />
             <Route exact path="/" element={user ? <Dashboard/> : <Navigate to="/login"/> } />
           </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import MatchTable from "../components/MatchTable";
 import { useMatches } from "../hooks/useMatches"
+import PickDate from "../components/PickDate";
 
 const All = () => {
     const { matches, dispatch } = useMatches()
@@ -14,26 +15,16 @@ const All = () => {
             if (response.ok) dispatch({type: 'SET_MATCHES', payload: json})
         }
         fetchMatches()
-    }, [dispatch, date])
+    }, [dispatch,date])
 
-    const handlePrev = () => {
-        const prev = new Date(date)
-        prev.setDate(date.getDate()-1)
-        setDate(prev)
-    }
-
-    const handleNxt = () => {
-        const nxt = new Date(date)
-        nxt.setDate(date.getDate()+1)
-        setDate(nxt)
-    }
+    const handleDate = (newDate) => {
+        setDate(newDate);
+    };
 
     return (
         <div className="history container my-5">
-            <div className="pickDate">
-                <button onClick={handlePrev} className="prev btn btn-sm btn-dark">&laquo; Previous Date</button>
-                { (date < new Date()) && (<button onClick={handleNxt} className="next btn btn-sm btn-dark">Next Date &raquo;</button>) }
-            </div><br />
+            <h3 className="title">Matches <span className="date">{date.toDateString()}</span></h3>
+            <PickDate date={date} handleDate={handleDate} />
             <MatchTable matches={matches} title="Matches" date={date} />
         </div>
     );
