@@ -3,8 +3,8 @@ import MatchDetails from "./MatchDetails";
 const MatchTable = ({matches, title, date}) => {
 
     return (
-        <div className="match-table my-5">
-            <h4 className="title">{title} <span className="date">{date.toDateString()}</span></h4>
+        <div className="match-table">
+            <h4 className="title">{title} <span className="date">{date.toDateString().substring(0,date.toDateString().lastIndexOf(" "))}</span></h4>
             <table className="table">
                 <thead>
                     <tr>
