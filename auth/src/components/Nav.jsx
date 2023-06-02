@@ -4,7 +4,6 @@ import { useLogout } from '../hooks/useLogout'
 
 const Nav = () => {
     const {user} = useAuth()
-    console.log("User: ",user)
     const { logout } = useLogout()
     const handleLogout = () => {
         logout()
