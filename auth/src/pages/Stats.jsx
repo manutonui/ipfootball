@@ -8,7 +8,7 @@ const Stats = () => {
     useEffect(()=>{
         if (user) {
             const fetchUsers = async () => {
-                const response = await fetch('/users/all', {
+                const response = await fetch(`/users/all`, {
                     headers: {
                         'Authorization':`Bearer ${user.token}`
                     }
