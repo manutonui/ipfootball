@@ -3,6 +3,7 @@ import { useAuthContext } from '../hooks/useAuthContext'
 import MatchTable from "../components/MatchTable";
 import PickDate from "../components/PickDate";
 import ReactGA from 'react-ga';
+import { Helmet } from 'react-helmet';
 
 const Paid = () => {
     const {user} = useAuthContext()
@@ -32,6 +33,10 @@ const Paid = () => {
 
     return (
         <div className="container my-5">
+            <Helmet>
+                <title>IP Football VIP</title>
+                <meta name="description" content="Get our high-odds expert tips in our premium subscription service for as low as $1 per week. Our exclusive betting tips will give you a winning edge and take your betting to the next level" />
+            </Helmet>
             <h3 className="page-title my-4">Paid Matches</h3>
             <PickDate date={date} handleDate={handleDate} />
             <MatchTable matches={matches} title="Matches" date={date}/>

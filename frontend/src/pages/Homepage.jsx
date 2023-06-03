@@ -1,6 +1,7 @@
 import MatchTable from "../components/MatchTable";
 import { useState, useEffect } from 'react';
 import ReactGA from 'react-ga';
+import { Helmet } from 'react-helmet';
 
 const Homepage = () => {
 
@@ -29,6 +30,10 @@ const Homepage = () => {
 
     return (
         <div className="homepage container my-5">
+            <Helmet>
+                <title>IP Football - Recent betting tips</title>
+                <meta name="description" content="Free accurate football betting tips to increase your chances of winning. We analyze matches, form, and statistics to provide top-notch predictions every day. Join us and make informed betting decisions." />
+            </Helmet>
             <h3 className="page-title my-4">Recent Tips</h3>
             <MatchTable matches={matches} title="Today" date={today}/>
             <MatchTable matches={upcoming} title="Tomorrow" date={moro} />

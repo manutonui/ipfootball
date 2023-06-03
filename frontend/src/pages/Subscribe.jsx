@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useAuthContext } from '../hooks/useAuthContext'
 import ReactGA from 'react-ga';
+import { Helmet } from 'react-helmet';
 
 const Subscribe = () => {
     const {user, dispatch} = useAuthContext()
@@ -30,6 +31,10 @@ const Subscribe = () => {
 
     return (
         <div className="subscribe container my-5">
+            <Helmet>
+                <title>Subscribe - IP Football</title>
+                <meta name="description" content="Create a free account and subscribe to our expert tips in our premium service for as low as $1 per week." />
+            </Helmet>
             { !subd && (<button className="btn btn-success" onClick={handleSubscribe}>Subscribe</button>) }
             { subd && (<button className="btn btn-danger" onClick={handleSubscribe}>Unsubscribe</button>) }
         </div>
