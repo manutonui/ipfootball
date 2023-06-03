@@ -31,7 +31,7 @@ const Stats = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    { users.map((user) => (<UserDetails user={user}/>)) }
+                    { users.map((user) => (<UserDetails user={user} key={user._id}/>)) }
                 </tbody>
             </table>
         </div>

@@ -3,7 +3,7 @@ import MatchTable from "../components/MatchTable";
 import { useMatches } from "../hooks/useMatches"
 import PickDate from "../components/PickDate";
 
-const All = () => {
+const Free = () => {
     const { matches, dispatch } = useMatches()
     const [date, setDate] = useState(new Date())
 
@@ -30,4 +30,4 @@ const All = () => {
     );
 }
  
-export default All;
+export default Free;

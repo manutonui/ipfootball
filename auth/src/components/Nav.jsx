@@ -19,7 +19,8 @@ const Nav = () => {
                             <div className="collapse navbar-collapse" id="navbarNavDropdown">
                                 <ul className="navbar-nav me-auto nav-pills">
                                     <Link className="nav-link" to="/new">New</Link>
-                                    <Link className="nav-link" to="/all">All</Link>
+                                    <Link className="nav-link" to="/free">Free</Link>
+                                    <Link className="nav-link" to="/paid">VIP</Link>
                                     <Link className="nav-link" to="/stats">Stats</Link>
                                 </ul>
                                 <li className="nav-link"><button className='btn btn-sm btn-danger' onClick={handleLogout}>Logout</button></li>
