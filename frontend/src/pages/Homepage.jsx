@@ -1,5 +1,6 @@
 import MatchTable from "../components/MatchTable";
 import { useState, useEffect } from 'react';
+import ReactGA from 'react-ga';
 
 const Homepage = () => {
 
@@ -11,8 +12,7 @@ const Homepage = () => {
     const [upcoming, setUpcoming] = useState([])
     
     useEffect(() => {
-        
-
+        ReactGA.pageview(window.location.pathname);
         const fetchMatches = async () => {
             const tomorrow = moro.toISOString().split('T')[0]
         

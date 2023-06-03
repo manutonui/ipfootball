@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import { useAuthContext } from '../hooks/useAuthContext'
 import MatchTable from "../components/MatchTable";
 import PickDate from "../components/PickDate";
+import ReactGA from 'react-ga';
 
 const Paid = () => {
     const {user} = useAuthContext()
@@ -14,6 +15,7 @@ const Paid = () => {
 
     useEffect(() => {
         if (user) {
+            ReactGA.pageview(window.location.pathname);
             const fetchMatches = async () => {
                 const d = date.toISOString().split('T')[0]
                 const response = await fetch(`/matches/vip/${d}`, {

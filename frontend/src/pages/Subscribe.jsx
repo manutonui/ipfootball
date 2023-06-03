@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { useAuthContext } from '../hooks/useAuthContext'
+import ReactGA from 'react-ga';
 
 const Subscribe = () => {
     const {user, dispatch} = useAuthContext()
@@ -7,6 +8,7 @@ const Subscribe = () => {
 
     useEffect(()=>{
         if (user) {
+            ReactGA.pageview(window.location.pathname);
             if ( user.type == 'paid' ) {
                 setSubd(true)
             } else {
