@@ -15,9 +15,10 @@ const Homepage = () => {
     useEffect(() => {
         ReactGA.pageview(window.location.pathname);
         const fetchMatches = async () => {
+            const d = today.toISOString().split('T')[0]
             const tomorrow = moro.toISOString().split('T')[0]
         
-            const response = await fetch(`/matches/date/today`)
+            const response = await fetch(`/matches/date/${d}`)
             const json = await response.json()
             if ( response.ok ) setMatches(json)
 
@@ -26,6 +27,7 @@ const Homepage = () => {
             if ( response2.ok ) setUpcoming(json2)
         }
         fetchMatches()
+        // eslint-disable-next-line
     }, [])
 
     return (

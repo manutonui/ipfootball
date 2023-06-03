@@ -10,7 +10,7 @@ const Subscribe = () => {
     useEffect(()=>{
         if (user) {
             ReactGA.pageview(window.location.pathname);
-            if ( user.type == 'paid' ) {
+            if ( user.type === 'paid' ) {
                 setSubd(true)
             } else {
                 setSubd(false)

@@ -29,6 +29,7 @@ const Paid = () => {
             }
             fetchMatches()
         }
+    // eslint-disable-next-line
     }, [date])
 
     return (
