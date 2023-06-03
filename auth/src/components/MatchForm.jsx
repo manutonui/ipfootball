@@ -9,13 +9,14 @@ const MatchForm = ({match, title}) => {
 
     const [home, setHome] = useState('')
     const [away, setAway] = useState('')
-    const [tip, setTip] = useState('NONE')
+    const [tip, setTip] = useState('none')
     const [odds, setOdds] = useState('')
     const [result, setResult] = useState('')
-    const [status, setStatus] = useState('NONE')
+    const [status, setStatus] = useState('?')
     const [date, setDate] = useState('')
     const [error, setError] = useState(null)
     const [success, setSuccess] = useState(null)
+    const [category, setCategory] = useState('none')
 
     useEffect(()=>{
         if ( match ) {
@@ -26,6 +27,7 @@ const MatchForm = ({match, title}) => {
             setResult(match.result)
             setStatus(match.status)
             setDate(match.date.split('T')[0])
+            setCategory(match.category)
         }
     },[match])
 
@@ -41,7 +43,7 @@ const MatchForm = ({match, title}) => {
                     'Content-Type': 'application/json',
                     'Authorization':`Bearer ${user.token}`
                 },
-                body: JSON.stringify({home,away,tip,date,odds, result, status})
+                body: JSON.stringify({home,away,tip,date,odds, result, status, category})
             })
     
             const json = await response.json()
@@ -63,7 +65,7 @@ const MatchForm = ({match, title}) => {
                     'Content-Type': 'application/json',
                     'Authorization':`Bearer ${user.token}`
                 },
-                body: JSON.stringify({home,away,tip,date,odds})
+                body: JSON.stringify({home,away,tip,date,odds, category})
             })
     
             const json = await response.json()
@@ -96,6 +98,22 @@ const MatchForm = ({match, title}) => {
         }
     }
 
+    const handleCategoryChange = (e) => {
+        setCategory(e.target.value)
+    }
+
+    const handleStatusChange = (e) => {
+        setStatus(e.target.value)
+    }
+
+    const handleResultChange = (e) => {
+        setResult(e.target.value)
+    }
+
+    const handleTipChange = (e) => {
+        setTip(e.target.value)
+    }
+
     return (
         <div>
             <form className='matchform' onSubmit={handleSubmit}>
@@ -114,8 +132,8 @@ const MatchForm = ({match, title}) => {
                 <div className="row">
                     <div className="col">
                         <label>Tip<span className='required'>*</span></label>
-                        <select required className="form-control form-control-sm" onChange={e => setTip(e.target.value)}>
-                            <option disabled selected>Tip</option>
+                        <select required className="form-control form-control-sm" onChange={handleTipChange} value={tip}>
+                            <option disabled value="none">Tip</option>
                             <option value="home">Home Win</option>
                             <option value="draw">Draw</option>
                             <option value="away">Away Win</option>
@@ -143,6 +161,13 @@ const MatchForm = ({match, title}) => {
                         <label>Date<span className='required'>*</span></label>
                         <input required type="date" className="form-control form-control-sm" value={date} onChange={e => setDate(e.target.value)}/>
                     </div>
+                    <div className="col">
+                        <label>Category<span className='required'>*</span></label>
+                        <select className='form-control' onChange={handleCategoryChange} value={category}>
+                            <option value="public">Public</option>
+                            <option value="paid">VIP</option>
+                        </select>
+                    </div>
                 </div><br/>
 
                 { match && (
@@ -150,12 +175,12 @@ const MatchForm = ({match, title}) => {
                         <div className="row">
                             <div className="col">
                                 <label>Result</label>
-                                <input placeholder="Result" className="form-control" value={result} onChange={e => setResult(e.target.value)}/>
+                                <input placeholder="Result" className="form-control" value={result} onChange={handleResultChange}/>
                             </div>
                             <div className="col">
                                 <label>Status</label>
-                                <select className='form-control' onChange={e => setStatus(e.target.value)}>
-                                    <option selected value="NONE">Result</option>
+                                <select className='form-control' onChange={handleStatusChange} value={status}>
+                                    <option disabled value="?">Result</option>
                                     <option value="won">Won</option>
                                     <option value="lost">Lost</option>
                                 </select>

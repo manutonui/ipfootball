@@ -20,6 +20,7 @@ const fetchMatches = async (req, res) => {
 }
 
 const postMatch = async (req, res) => {
+    console.log(req.body)
     const {home, away, date, tip, odds, category} = req.body
     if (!home || !away || !date || !tip || !odds || !category) return res.status(400).json({ error: "All fields are required." })
     const fixture = home+' - '+away
@@ -38,6 +39,7 @@ const updateMatch = async (req, res) => {
     const {id} = req.params
     const {home, away} = req.body
     if ( home && away ) req.body.fixture = home+' - '+away
+    req.body.result = req.body.result.replace(/\s/g, '');
     let author = await Manager.findOne({_id:req.manager_id})
 
     try {
