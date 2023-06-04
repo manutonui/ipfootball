@@ -46,6 +46,6 @@ const fetchUsers = async (req, res) => {
 }
 
 // returns jwt token of signs user id with a secret key
-const createToken = (user_id) => jwt.sign({id: user_id }, process.env.SECRET, {expiresIn: '1d'})
+const createToken = (user_id) => jwt.sign({id: user_id }, process.env.SECRET, {expiresIn: '3d'})
 
 module.exports = { loginUser, signupUser, subscribe, fetchUsers }

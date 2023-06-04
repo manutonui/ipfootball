@@ -22,7 +22,7 @@ function App() {
             <Route path="/login" element={ !user ? <Login/> : <Navigate to="/" /> }></Route>
             <Route path="/signup" element={ !user ? <Signup/> : <Navigate to="/" />}></Route>
             <Route path="/subscribe" element={ user ? <Subscribe/>: <Navigate to="/login" />}></Route>
-            <Route path="/paid" element={ user && user.type === 'paid' ? <Paid/> : <Navigate to="/login" /> }></Route>
+            <Route path="/paid" element={ user && user.type === 'paid' ? <Paid/> : <Navigate to="/subscribe" /> }></Route>
           </Routes>
         </div>
       </HashRouter>

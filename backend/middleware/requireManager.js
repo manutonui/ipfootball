@@ -13,7 +13,7 @@ const requireManager = async (req, res, next) => {
             else return res
         })
 
-        if ( !dtoken ) { return res.status(401).json({error: 'Token expired.'}) } // logout fronted (del key value item)
+        if ( !dtoken ) { return res.status(401).json({error: 'Token expired.', fix: 'refresh'}) } // logout fronted (del key value item)
 
         const id = dtoken.id
         const manager = await Manager.findOne({_id:id})

@@ -135,3 +135,15 @@ b.tip {
   position: relative;
   z-index: 10;
 }
+
+.flash {
+  background-color: lightgoldenrodyellow;
+  position: absolute;
+  z-index: 10;
+  padding: 10px 30px;
+  border: 2px groove #bbb;
+  border-radius: 3px;
+  margin: 20px 0;
+  color: red;
+  font-weight: 300;
+}

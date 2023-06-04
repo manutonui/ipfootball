@@ -14,7 +14,7 @@ const requireUser = async (req, res, next) => {
             else { return res }
         })
 
-        if ( !dtoken ) { return res.status(401).json({error: 'Token has expired.', reason: 'Exists but expired'}) } // set auto -logout in frontend
+        if ( !dtoken ) { return res.status(401).json({error: 'Token expired.', fix: 'refresh'}) } // set auto -logout in frontend
 
         const id = dtoken.id
         const user = await User.findOne({_id:id})

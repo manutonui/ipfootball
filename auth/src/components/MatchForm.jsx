@@ -1,11 +1,15 @@
 import { useEffect, useState } from 'react'
 import { useAuth } from '../hooks/useAuth'
 import { useMatches } from "../hooks/useMatches"
+import { useLogout } from '../hooks/useLogout'
+import FlashMessage from '../components/FlashMessage'
 
 const MatchForm = ({match, title}) => {
     
     const {user} = useAuth()
     const { dispatch } = useMatches()
+    const [flash, setFlash] = useState(null)
+    const {logout} = useLogout()
 
     const [home, setHome] = useState('')
     const [away, setAway] = useState('')
@@ -47,16 +51,19 @@ const MatchForm = ({match, title}) => {
             })
     
             const json = await response.json()
-            
-            if (!response.ok) {
-                setError(json.error)
-            }
 
             if (response.ok) {
                 setError(null);
                 setSuccess('Match updated successfully!')
                 setHome(''); setAway(''); setOdds(''); setTip('NONE'); setDate('');
                 dispatch({type: 'UPDATE_MATCH', payload: json})
+            } else {
+                if (!response.ok) { if (json.fix === 'refresh') {
+                    setFlash('Login expired, logging you out...')
+                    setTimeout(() => {
+                        logout()
+                    }, 5000);
+                } }
             }
         } else { // create new
             const response = await fetch('/matches/new', {
@@ -69,13 +76,18 @@ const MatchForm = ({match, title}) => {
             })
     
             const json = await response.json()
-            
-            if (!response.ok) setError(json.error)
             if (response.ok) {
                 setError(null);
                 setSuccess('Match posted successfully!')
                 setHome(''); setAway(''); setOdds(''); setTip('NONE'); setDate('');
                 dispatch({type: 'CREATE_MATCH', payload: json})
+            } else {
+                if (!response.ok) { if (json.fix === 'refresh') {
+                    setFlash('Login expired, logging you out...')
+                    setTimeout(() => {
+                        logout()
+                    }, 5000);
+                } }
             }
         }
 
@@ -198,7 +210,7 @@ const MatchForm = ({match, title}) => {
                 {error && <div className="alert alert-danger my-2">{error}</div>}<br/>
 
                 {success && <div className="alert alert-success my-2">{success}</div>}<br/>
-                
+                { flash && <FlashMessage msg={flash} /> }
             </form>
         </div>
     );
