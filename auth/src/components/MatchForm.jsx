@@ -55,7 +55,7 @@ const MatchForm = ({match, title}) => {
             if (response.ok) {
                 setError(null);
                 setSuccess('Match updated successfully!')
-                setHome(''); setAway(''); setOdds(''); setTip('NONE'); setDate('');
+                setHome(''); setAway(''); setOdds(''); setTip('none'); setDate('');
                 dispatch({type: 'UPDATE_MATCH', payload: json})
             } else {
                 if (!response.ok) { if (json.fix === 'refresh') {
@@ -79,7 +79,7 @@ const MatchForm = ({match, title}) => {
             if (response.ok) {
                 setError(null);
                 setSuccess('Match posted successfully!')
-                setHome(''); setAway(''); setOdds(''); setTip('NONE'); setDate('');
+                setHome(''); setAway(''); setOdds(''); setTip('none'); setDate('');
                 dispatch({type: 'CREATE_MATCH', payload: json})
             } else {
                 if (!response.ok) { if (json.fix === 'refresh') {
