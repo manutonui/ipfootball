@@ -43,7 +43,7 @@ const updateMatch = async (req, res) => {
     let author = await Manager.findOne({_id:req.manager_id})
 
     try {
-        const match = await Match.findOneAndUpdate({_id: id}, {...req.body, author:author.identity}, {new: true})
+        const match = await Match.findOneAndUpdate({_id: id}, {...req.body}, {new: true})
         res.status(200).json(match)
     } catch (e) {
         res.status(400).json({error: "Match not found!"})

@@ -26,6 +26,7 @@ function App() {
           </Routes>
         </div>
       </HashRouter>
+      <a href="https://api.whatsapp.com/send?phone=YOUR_PHONE_NUMBER" className="wa-icon" rel="noreferrer" target="_blank"><img src="/img/WA.png" alt="WA icon"/><br/><b>Contact Us</b></a>
     </div>
   );
 }

@@ -147,3 +147,18 @@ b.tip {
   color: red;
   font-weight: 300;
 }
+
+.wa-icon {
+  position: fixed;
+  z-index: 10 !important;
+  text-decoration: none;
+  color: white;
+  bottom: 0; right: 0;
+  opacity: 1;
+  margin: 20px;
+  text-align: center;
+}
+
+.wa-icon img {
+  width: 60px;
+}
