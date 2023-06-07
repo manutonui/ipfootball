@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react"
 import MatchTable from "../components/MatchTable";
 import PickDate from "../components/PickDate";
-import ReactGA from 'react-ga';
 import { Helmet } from 'react-helmet';
 
 const History = () => {
@@ -9,7 +8,6 @@ const History = () => {
     const [date, setDate] = useState(new Date())
 
     useEffect(() => {
-        ReactGA.pageview(window.location.pathname);
         const fetchMatches = async () => {
             const d = date.toISOString().split('T')[0] // convert to iso then split
             const response = await fetch(`/matches/date/${d}`);

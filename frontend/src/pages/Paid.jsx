@@ -3,7 +3,6 @@ import { useAuthContext } from '../hooks/useAuthContext'
 import MatchTable from "../components/MatchTable";
 import PickDate from "../components/PickDate";
 import FlashMessage from '../components/FlashMessage'
-import ReactGA from 'react-ga';
 import { Helmet } from 'react-helmet';
 import { useLogout } from '../hooks/useLogout'
 
@@ -40,7 +39,6 @@ const Paid = () => {
     useEffect(() => {
         if (user) {
             fetchMatches()
-            ReactGA.pageview(window.location.pathname);
         }
     // eslint-disable-next-line
     }, [date])

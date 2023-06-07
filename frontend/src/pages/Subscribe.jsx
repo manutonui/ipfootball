@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
 import { useAuthContext } from '../hooks/useAuthContext'
-import ReactGA from 'react-ga';
 import { Helmet } from 'react-helmet';
 import FlashMessage from '../components/FlashMessage'
 import { useLogout } from '../hooks/useLogout'
@@ -13,7 +12,6 @@ const Subscribe = () => {
 
     useEffect(()=>{
         if (user) {
-            ReactGA.pageview(window.location.pathname);
             if ( user.type === 'paid' ) {
                 setSubd(true)
             } else {
