@@ -27,7 +27,7 @@ const History = () => {
                 <title>IP Football History - Previous tips</title>
                 <meta name="description" content="View our archive of previous betting tips. We analyze matches to provide top-notch predictions every day." />
             </Helmet>
-            <h3 className="page-title my-4">Past Matches</h3>
+            <h3 className="page-title my-4">Past Tips</h3>
             <PickDate date={date} handleDate={handleDate} />
             <MatchTable matches={matches} title="Matches" date={date}/>
         </div>

@@ -1,10 +1,22 @@
 import MatchDetails from "./MatchDetails";
 
-const MatchTable = ({matches, title, date}) => {
+const MatchTable = ({matches, date}) => {
+
+    const handleDate = () => {
+        var currentDate = new Date();
+        var previousDate = new Date();
+        previousDate.setDate(currentDate.getDate() - 1);
+        var nextDate = new Date();
+        nextDate.setDate(currentDate.getDate() + 1);
+        if (date.toDateString() === previousDate.toDateString()) return "Yesterday"
+        else if (date.toDateString() === nextDate.toDateString()) return "Tomorrow"
+        else if (date.toDateString() === currentDate.toDateString()) return "Today"
+        else return date.toDateString().substring(0,date.toDateString().lastIndexOf(" "))
+    }
 
     return (
         <div className="match-table">
-            <h4 className="title">{title} <span className="date">{date.toDateString().substring(0,date.toDateString().lastIndexOf(" "))}</span></h4>
+            <h4 className="title">{handleDate()}</h4>
             <table className="table">
                 <thead>
                     <tr>

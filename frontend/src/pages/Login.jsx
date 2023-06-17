@@ -15,7 +15,7 @@ const Login = () => {
     return (
         <div className="loginPage container my-5">
             <form className="loginForm" onSubmit={handleLogin}>
-                <h2 className="page-title"><u>Login</u></h2>
+                <h2 className="page-title">Login</h2>
                 <label>Username or Email<span className='required'>*</span></label><br/>
                 <input required onChange={e=>setIdentity(e.target.value)} value={identity} className="form-control"/><br/>
                 <label>Password<span className='required'>*</span></label><br/>

@@ -1,42 +1,36 @@
 import MatchTable from "../components/MatchTable";
 import { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
+import PickDate from "../components/PickDate";
 
 const Homepage = () => {
-
-    const today = new Date()
-    const moro = new Date(today)
-    moro.setDate(today.getDate()+1)
-
     const [matches, setMatches] = useState([])
-    const [upcoming, setUpcoming] = useState([])
+    const [date, setDate] = useState(new Date())
     
     useEffect(() => {
         const fetchMatches = async () => {
-            const d = today.toISOString().split('T')[0]
-            const tomorrow = moro.toISOString().split('T')[0]
-        
+            const d = date.toISOString().split('T')[0]
             const response = await fetch(`/matches/date/${d}`)
             const json = await response.json()
             if ( response.ok ) setMatches(json)
-
-            const response2 = await fetch(`/matches/date/${tomorrow}`)
-            const json2 = await response2.json()
-            if ( response2.ok ) setUpcoming(json2)
         }
         fetchMatches()
         // eslint-disable-next-line
     }, [])
 
+    const handleDate = (newDate) => {
+        setDate(newDate);
+    };
+
     return (
         <div className="homepage container my-5">
             <Helmet>
-                <title>IP Football - Recent betting tips</title>
-                <meta name="description" content="Free accurate football betting tips to increase your chances of winning. We analyze matches, form, and statistics to provide top-notch predictions every day. Join us and make informed betting decisions." />
+                <title>IP Football - Free Tips</title>
+                <meta name="description" content="Free accurate football betting tips to increase your chances of winning. Expert analysis on matches, form, and statistics to provide top-notch predictions every day. Join us and make informed betting decisions." />
             </Helmet>
-            <h3 className="page-title my-4">Recent Tips</h3>
-            <MatchTable matches={matches} title="Today" date={today}/>
-            <MatchTable matches={upcoming} title="Tomorrow" date={moro} />
+            <h3 className="page-title my-4">Free Tips</h3>
+            <PickDate date={date} handleDate={handleDate} />
+            <MatchTable matches={matches} date={date}/>
         </div>
     );
 }
