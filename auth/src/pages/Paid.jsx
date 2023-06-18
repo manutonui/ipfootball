@@ -43,7 +43,7 @@ const Paid = () => {
 
     return (
         <div className="paid container my-5">
-            <h3 className="page-title my-4">Paid Matches</h3>
+            <h3 className="title">Paid Matches <span className="date">{date.toDateString()}</span></h3>
             <PickDate date={date} handleDate={handleDate} />
             <MatchTable matches={matches} title="Matches" date={date}/>
             { flash && <FlashMessage msg={flash} /> }
