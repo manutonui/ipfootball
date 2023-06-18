@@ -16,7 +16,6 @@ const MatchTable = ({matches}) => {
                     {matches.length ? matches.map( (match) => (<MatchDetails match={match} key={match._id}/>) ) : <tr className="nomatchesinfo">No matches available</tr>}
                 </tbody>
             </table>
-            
         </div>
     );
 }

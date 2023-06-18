@@ -23,6 +23,11 @@ const MatchForm = ({match, title}) => {
     const [category, setCategory] = useState('none')
 
     useEffect(()=>{
+        const timer = setTimeout(() => {
+            setError(null)
+            setSuccess(null)
+            setFlash(null)
+        }, 8000) // Hide after 8 second
         if ( match ) {
             setHome(match.fixture.split(' - ')[0])
             setAway(match.fixture.split(' - ')[1])
@@ -33,7 +38,8 @@ const MatchForm = ({match, title}) => {
             setDate(match.date.split('T')[0])
             setCategory(match.category)
         }
-    },[match])
+        return () => clearTimeout(timer)
+    },[match, error, success])
 
 
     const handleSubmit = async (e) => {

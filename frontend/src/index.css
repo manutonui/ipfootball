@@ -212,3 +212,13 @@ b.tip {
   flex-shrink: 0;
   /* z-index: 10; */
 }
+
+tr.vip {
+  background-color: gold;
+  background-blend-mode: lighten;
+}
+
+.disclaimer {
+  font-size: 0.9em;
+  font-weight: 300;
+}

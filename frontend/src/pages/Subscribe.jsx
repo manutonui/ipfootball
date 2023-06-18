@@ -40,14 +40,9 @@ const Subscribe = () => {
         
         if (response.ok) { // request sent
             setLoading(false)
-            setFlash("Request sent.")
+            setFlash("Request sent. Check phone then confirm to continue")
             setAlert('success')
             setCode(json.tx)
-            setTimeout( async () => { // timeout to confirm-check
-                setFlash("Confirming...")
-                setAlert('info')
-                confirmCode()
-            }, 35000)
         } else {
             setLoading(false)
             setFlash(json.error)

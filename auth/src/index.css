@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
 
+table, form {
+  background-color: white;
+  border: 2px solid gold;
+}
+
+body {
+  background-color: lightgoldenrodyellow;
+}
+
 .navbar-brand i { font-weight: 100; }
 
 .navbar-brand {
@@ -141,4 +150,10 @@ thead {
   right: 0;
   color: red;
   font-weight: 300;
+}
+
+tr.vip {
+  font-weight: 400;
+  background-color: gold;
+  background-blend-mode: lighten;
 }

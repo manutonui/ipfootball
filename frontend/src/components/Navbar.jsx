@@ -1,15 +1,15 @@
 import { Link } from 'react-router-dom'
-// import { useAuthContext } from '../hooks/useAuthContext'
-// import { useLogout } from '../hooks/useLogout'
+import { useAuthContext } from '../hooks/useAuthContext'
+import { useLogout } from '../hooks/useLogout'
 import $ from 'jquery'
 import { useEffect } from 'react'
 
 const Navbar = () => {
-    // const {user} = useAuthContext()
-    // const { logout } = useLogout()
-    // const handleLogout = () => {
-    //     logout()
-    // }
+    const {user} = useAuthContext()
+    const { logout } = useLogout()
+    const handleLogout = () => {
+        logout()
+    }
 
     useEffect(() => {
         $('.navbar a').on('click', () => $('.navbar-toggler').click());
@@ -24,19 +24,19 @@ const Navbar = () => {
 
                     <div className="collapse navbar-collapse" id="navbar">
                         <ul className="navbar-nav me-auto">
-                            {/* { user && (<Link className="nav-link" to="/subscribe">Subscription</Link>)} */}
-                            {/* { user && new Date(user.duedate )> new Date() && (<Link className="nav-link" to="/paid">VIP</Link>)} */}
+                            { user && (<Link className="nav-link" to="/subscribe">Subscription</Link>)}
+                            { user && new Date(user.duedate ) > new Date() && (<Link className="nav-link" to="/paid">VIP</Link>)}
                             <Link className="nav-link" to="/archive">Archives</Link>
                             
                         </ul>
                         <ul className='navbar-nav'>
-                            {/* { !user && ( */}
+                            { !user && (
                                 <>
-                                    {/* <li className="nav-item me-1"><Link className="nav-link" to="/login"><button className='btn btn-success btn-sm'>Login</button></Link></li> */}
-                                    {/* <li className="nav-item me-1"><Link className="nav-link" to="/signup"><button className='btn btn-primary btn-sm'>Signup</button></Link></li> */}
+                                    <li className="nav-item me-1"><Link className="nav-link" to="/login"><button className='btn btn-success btn-sm'>Login</button></Link></li>
+                                    <li className="nav-item me-1"><Link className="nav-link" to="/signup"><button className='btn btn-primary btn-sm'>Signup</button></Link></li>
                                 </>
-                            {/* )} */}
-                            {/* { user && (<li><button className='btn btn-sm btn-danger me-3' onClick={handleLogout}>Logout</button></li>)} */}
+                            )} 
+                            { user && (<li><button className='btn btn-sm btn-danger me-3' onClick={handleLogout}>Logout</button></li>)}
                         </ul>
                     </div>
                 </div>
