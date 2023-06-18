@@ -6,7 +6,7 @@ const MatchDetails = ({match}) => {
     }
     
     return (
-        <tr className={match.category === 'public' ? 'public':'vip'}>
+        <tr className={match.category === 'paid' ? 'vip':''}>
             {/* <td>{dateFormat(match.date, 'yyyy-mm-dd')}</td> */}
             <td>{match.fixture.split('-')[0]}<br/>{match.fixture.split('-')[1]}</td>
             <td><b className="tip">{match.tip}</b> @ {match.odds}</td>
