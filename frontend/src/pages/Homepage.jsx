@@ -2,6 +2,8 @@ import MatchTable from "../components/MatchTable";
 import { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import PickDate from "../components/PickDate";
+import TableTitle from "../components/TableTitle";
+
 
 const Homepage = () => {
     const [matches, setMatches] = useState([])
@@ -16,7 +18,7 @@ const Homepage = () => {
         }
         fetchMatches()
         // eslint-disable-next-line
-    }, [])
+    }, [date])
 
     const handleDate = (newDate) => {
         setDate(newDate);
@@ -28,7 +30,7 @@ const Homepage = () => {
                 <title>IP Football - Free Tips</title>
                 <meta name="description" content="Free accurate football betting tips to increase your chances of winning. Expert analysis on matches, form, and statistics to provide top-notch predictions every day. Join us and make informed betting decisions." />
             </Helmet>
-            <h3 className="page-title my-4">Free Tips</h3>
+            <TableTitle title="Free Tips" date={date}/>
             <PickDate date={date} handleDate={handleDate} />
             <MatchTable matches={matches} date={date}/>
         </div>

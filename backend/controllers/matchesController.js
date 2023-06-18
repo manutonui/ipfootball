@@ -14,6 +14,18 @@ const getSpecialMatches = async (req, res) => {
     res.status(200).json(matches)
 }
 
+const getPrevMatches = async (req, res) => {
+    const {date} = req.params
+    const y = new Date()
+    const d = new Date(date)
+    y.setDate(y.getDate()-1)
+    let matches = []
+    if (y>d) {
+        matches = await Match.find({date})
+    }
+    res.status(200).json(matches)
+}
+
 const fetchMatches = async (req, res) => {
     const matches = await Match.find().sort({date: -1})
     res.status(200).json(matches)
@@ -60,4 +72,4 @@ const deleteMatch = async (req, res) => {
     }
 }
 
-module.exports = { getMatches, postMatch, updateMatch, deleteMatch, fetchMatches, getSpecialMatches }
+module.exports = { getMatches, postMatch, updateMatch, deleteMatch, fetchMatches, getSpecialMatches, getPrevMatches }
