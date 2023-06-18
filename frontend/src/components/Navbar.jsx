@@ -25,7 +25,7 @@ const Navbar = () => {
                     <div className="collapse navbar-collapse" id="navbar">
                         <ul className="navbar-nav me-auto">
                             {/* { user && (<Link className="nav-link" to="/subscribe">Subscription</Link>)} */}
-                            { user && /* new Date(user.duedate ) > new Date() && */ (<Link className="nav-link" to="/paid">VIP</Link>)}
+                            { user && /* new Date(user.duedate ) > new Date() && */ (<Link className="nav-link" to="/paid">Premium Tips</Link>)}
                             <Link className="nav-link" to="/archive">Archives</Link>
                             
                         </ul>
