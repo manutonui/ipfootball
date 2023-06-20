@@ -30,7 +30,7 @@ const Homepage = () => {
                 <title>IP Football - Free Tips</title>
                 <meta name="description" content="Free accurate football betting tips to increase your chances of winning. Expert analysis on matches, form, and statistics to provide top-notch predictions every day. Join us and make informed betting decisions." />
             </Helmet>
-            <TableTitle title="Free Tips" date={date}/>
+            <TableTitle title="Free Expert Tips" date={date}/>
             <PickDate date={date} handleDate={handleDate} />
             <MatchTable matches={matches} date={date}/>
         </div>

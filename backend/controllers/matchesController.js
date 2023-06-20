@@ -3,9 +3,12 @@ const Manager = require('../models/Manager')
 
 const getMatches = async (req, res) => {
     const {date} = req.params // if provided
-    let matches = await Match.find({date, category: {$ne: 'paid'}})
+    // let matches = await Match.find({date, category: {$ne: 'paid'}})
+    let matches = await Match.find({date})
     res.status(200).json(matches)
 }
+
+// today free matches
 
 const getSpecialMatches = async (req, res) => {
     // Rem: req has user id
@@ -25,6 +28,8 @@ const getPrevMatches = async (req, res) => {
     }
     res.status(200).json(matches)
 }
+
+// get all prev matches and not paid matches
 
 const fetchMatches = async (req, res) => {
     const matches = await Match.find().sort({date: -1})
