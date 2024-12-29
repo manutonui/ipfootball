@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken')
 
 const isListed = (identity) => {
     const listedManagers = process.env.MANAGERS.split(',')
@@ -17,15 +18,14 @@ const managerSchema = new Schema({
 // static methods: signup, login
 managerSchema.statics.signup = async function(identity, password){
     if (!identity || !password) throw Error("All fields are required.")
-    if (!isListed(identity)) throw Error("Permission denied.") // check if is listed
+    if (!isListed(identity)) throw Error("Permission denied. Not listed by admin") // check if is listed
     
-    const identified = await this.findOne({identity})
-    if (identified) { throw Error('User already exists.') } // Validation
+    const usernameTaken = await this.findOne({identity})
+    if (usernameTaken) { throw Error('Username already exists.') } // Validation
     
     const salt = await bcrypt.genSalt(10)
     const hash = await bcrypt.hash(password, salt) // Hash
-    
-    const manager = this.create({identity, password: hash}) // create
+    const manager = this.create({identity, password: hash})
     return manager
 }
 

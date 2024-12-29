@@ -17,7 +17,7 @@ const signupManager = async (req, res) => {
         const manager = await Manager.signup(identity, password)
         const token = createToken(manager._id) // 
         res.status(200).json({identity,token})
-    } catch (e) { res.status(400).json({error: e.message}) }
+    } catch (e) { res.status(400).json({error: "Controller error {managers}: "+e.message}) }
 }
 
 const createToken = (user_id) => jwt.sign({id: user_id }, process.env.SECRET, {expiresIn: '2d'}) // signs the id

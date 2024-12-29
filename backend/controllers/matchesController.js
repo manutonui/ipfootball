@@ -1,10 +1,45 @@
 const Match = require('../models/Match')
 const Manager = require('../models/Manager')
+const api = process.env.API
+const fs = require('fs');
+const path = require('path');
+
+const saveRespToFile = (json) => {
+    // Convert JSON data to a string
+    const jsonString = JSON.stringify(json); // Pretty-print with 2 spaces
+
+    // Write JSON string to a file
+    const date = new Date('Ymd')
+    console.log(date)
+    fs.writeFile(`matches-${date}.json1`, jsonString, (err) => {
+    if (err) {
+        console.error('Error writing file:', err);
+    } else {
+        console.log('JSON data saved to data.json');
+    }
+    });
+}
 
 const getMatches = async (req, res) => {
     const {date} = req.params // if provided
     // let matches = await Match.find({date, category: {$ne: 'paid'}})
-    let matches = await Match.find({date})
+    // let matches = await Match.find({date})
+    let matches = await fetch(api, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            "endpoint" : "fixtures",
+            "params" : {
+                "date": "2024-12-21"
+            }
+        }),
+    })
+    matches = await matches.json()
+    console.log("Matches: ", matches)
+    
+    
     res.status(200).json(matches)
 }
 
